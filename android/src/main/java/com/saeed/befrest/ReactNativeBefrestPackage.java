@@ -16,7 +16,7 @@ public class ReactNativeBefrestPackage implements ReactPackage {
       return Arrays.<NativeModule>asList(new ReactNativeBefrestModule(reactContext));
     }
 
-    // Deprecated from RN 0.47
+    @SuppressWarnings("unused")
     public List<Class<? extends JavaScriptModule>> createJSModules() {
       return Collections.emptyList();
     }
