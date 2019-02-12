@@ -52,13 +52,13 @@ public class ReactNativeBefrestModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void setUId(long uId) {
-        BefrestFactory.getInstance(reactContext).setUId(uId);
+    public void setUId(float uId) {
+        BefrestFactory.getInstance(reactContext).setUId((long)uId);
     }
 
     @ReactMethod
-    public void init(long uId, String auth, String chId) {
-        BefrestFactory.getInstance(reactContext).init(uId, auth, chId);
+    public void init(float uId, String auth, String chId) {
+        BefrestFactory.getInstance(reactContext).init((long)uId, auth, chId);
     }
 
     @ReactMethod
