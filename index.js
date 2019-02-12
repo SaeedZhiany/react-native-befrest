@@ -1,8 +1,8 @@
-import {NativeModules} from 'react-native';
+import {NativeModules, DeviceEventEmitter} from 'react-native';
 
 const {ReactNativeBefrest} = NativeModules;
 
-export default {
+const Befrest = {
   init(
     uId: number,
     auth: string,
@@ -41,13 +41,28 @@ export default {
   ) {
     ReactNativeBefrest.removeTopic(topic);
   },
-  getCurrentTopics(): Promise<string[]>{
+  getCurrentTopics(): Promise<string[]> {
     return ReactNativeBefrest.getCurrentTopics();
   },
-  refresh(): Promise<boolean>{
+  refresh(): Promise<boolean> {
     return ReactNativeBefrest.refresh();
   },
-  getSdkVersion(): Promise<number>{
+  getSdkVersion(): Promise<number> {
     return ReactNativeBefrest.getSdkVersion();
+  },
+  addListener(eventName: string, callBack: BefrestEventCallBack) {
+    DeviceEventEmitter.addListener(eventName, callBack);
+  },
+  removeListener(eventName: string, callBack: BefrestEventCallBack) {
+    DeviceEventEmitter.removeListener(eventName, callBack);
   }
 };
+
+export default Befrest;
+
+export type BefrestEventCallBack = (messages: BefrestMessage[]) => void;
+
+export interface BefrestMessage {
+  data: string;
+  timestamp: string,
+}

@@ -1,5 +1,7 @@
 declare module 'react-native-befrest' {
 
+  type EventType = 'receivePushNotification';
+
   function init(
     uId: number,
     auth: string,
@@ -36,4 +38,14 @@ declare module 'react-native-befrest' {
 
   function getSdkVersion(): Promise<number>;
 
+  function addListener(eventName: EventType, callBack: BefrestEventCallBack);
+
+  function removeListener(eventName: EventType, callBack: BefrestEventCallBack);
+
+  export type BefrestEventCallBack = (messages: BefrestMessage[]) => void;
+
+  interface BefrestMessage {
+    data: string;
+    timestamp: string,
+  }
 }
