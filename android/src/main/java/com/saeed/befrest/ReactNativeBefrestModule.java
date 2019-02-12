@@ -53,49 +53,49 @@ public class ReactNativeBefrestModule extends ReactContextBaseJavaModule {
 
     @ReactMethod
     public void setAuth(String auth) {
-        BefrestFactory.getInstance(reactContext).setAuth(auth);
+        befrestInstance.setAuth(auth);
     }
 
     @ReactMethod
     public void setChId(String chId) {
-        BefrestFactory.getInstance(reactContext).setChId(chId);
+        befrestInstance.setChId(chId);
     }
 
     @ReactMethod
     public void setUId(float uId) {
-        BefrestFactory.getInstance(reactContext).setUId((long)uId);
+        befrestInstance.setUId((long) uId);
     }
 
     @ReactMethod
     public void init(float uId, String auth, String chId) {
-        BefrestFactory.getInstance(reactContext).init((long)uId, auth, chId);
+        befrestInstance.init((long) uId, auth, chId);
     }
 
     @ReactMethod
     public void start() {
-        BefrestFactory.getInstance(reactContext).start();
+        befrestInstance.start();
     }
 
     @ReactMethod
     public void stop() {
-        BefrestFactory.getInstance(reactContext).stop();
+        befrestInstance.stop();
     }
 
     @ReactMethod
     public void addTopic(String topic) {
-        BefrestFactory.getInstance(reactContext).addTopic(topic);
+        befrestInstance.addTopic(topic);
     }
 
     @ReactMethod
     public void removeTopic(String topic) {
-        BefrestFactory.getInstance(reactContext).removeTopic(topic);
+        befrestInstance.removeTopic(topic);
     }
 
     @ReactMethod
     public void getCurrentTopics(Promise promise) {
         try {
-            promise.resolve(BefrestFactory.getInstance(reactContext).getCurrentTopics());
-        } catch (Exception e){
+            promise.resolve(befrestInstance.getCurrentTopics());
+        } catch (Exception e) {
             promise.reject(new Throwable(e.getMessage()));
         }
     }
@@ -103,8 +103,8 @@ public class ReactNativeBefrestModule extends ReactContextBaseJavaModule {
     @ReactMethod
     public void refresh(Promise promise) {
         try {
-            promise.resolve(BefrestFactory.getInstance(reactContext).refresh());
-        } catch (Exception e){
+            promise.resolve(befrestInstance.refresh());
+        } catch (Exception e) {
             promise.reject(new Throwable(e.getMessage()));
         }
     }
@@ -112,8 +112,8 @@ public class ReactNativeBefrestModule extends ReactContextBaseJavaModule {
     @ReactMethod
     public void getSdkVersion(Promise promise) {
         try {
-            promise.resolve(BefrestFactory.getInstance(reactContext).getSdkVersion());
-        } catch (Exception e){
+            promise.resolve(befrestInstance.getSdkVersion());
+        } catch (Exception e) {
             promise.reject(new Throwable(e.getMessage()));
         }
     }
