@@ -1,0 +1,12 @@
+.github/
+example/
+*.iml
+.DS_Store
+.gradle/
+.idea/
+.npmignore
+build/
+gradle/
+gradlew
+gradlew.bat
+local.properties
